@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Game</title>
+<link rel="stylesheet" href="word.css">
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-family: fantasy;font-weight: 100;font-size:50px;;color:dodgerblue;">Guess the Word !</h1>
+        <p id="clue"></p>
+        <div class="word-container" id="word-container"></div>
+        <p id="guesses">You have <span id="remaining-guesses">6</span> guesses remaining.</p>
+        <input type="text" id="guess-input" placeholder="Type one letter">
+        <button id="submit-button" onclick="checkGuess()">Guess</button>
+        <p id="feedback"></p>
+    </div>
+<script src="word.js">
+
+
+</script>
+</body>
+</html>
