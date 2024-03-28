@@ -47,23 +47,19 @@ function updateWordDisplay() {
             wordContainer.appendChild(letterBox);
         }
 
-        // Display the guessed letter if it matches the input or if it's in the guessed letters array
         if (guessedLetters.includes(word[i])) {
             letterBox.innerText = word[i];
         } else if (initialLetters.includes(i)) {
             letterBox.innerText = word[i];
         } else {
-            // Hide other letters
             letterBox.innerText = '';
         }
     }
 
-    // Check if all letters in the word have been guessed
     const guessedWord = Array.from(wordContainer.children).map(letterBox => letterBox.innerText).join('');
     if (guessedWord === word) {
         document.getElementById('feedback').innerText = `Congratulations! You have guessed the word "${word}"!`;
-        document.getElementById('feedback').style.color = 'green'; // Set feedback color to green
-        // Disable input and button to prevent further guesses
+        document.getElementById('feedback').style.color = 'green'; 
         document.getElementById('guess-input').disabled = true;
         document.getElementById('submit-button').disabled = true;
     }
@@ -71,7 +67,7 @@ function updateWordDisplay() {
 
 function generateInitialLetters(wordLength) {
     const initialIndices = [];
-    const numInitialLetters = wordLength === 7 ? 3 : 2; // 3 letters for 7-letter words, 2 letters for others
+    const numInitialLetters = wordLength === 7 ? 3 : 2;
 
     while (initialIndices.length < numInitialLetters) {
         const index = Math.floor(Math.random() * wordLength);
@@ -99,8 +95,7 @@ function checkGuess() {
         document.getElementById('remaining-guesses').innerText = remainingGuesses;
         if (remainingGuesses === 0) {
             document.getElementById('feedback').innerText = `Sorry, you've run out of guesses. The word was "${word}".`;
-            document.getElementById('feedback').style.color = 'red'; // Set feedback color to red
-            // Disable input and button to prevent further guesses
+            document.getElementById('feedback').style.color = 'red'; 
             document.getElementById('guess-input').disabled = true;
             document.getElementById('submit-button').disabled = true;
         } else {
